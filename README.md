@@ -420,7 +420,7 @@ python scripts/06_demo_video.py             # annotated demo video
 
 ---
 
-## What didn't fit in the 8-hour window
+## Beyond the 8-hour scope
 
 The items below were intentionally descoped to keep the submission reviewable in 30–45 minutes.
 They represent the natural next steps if this were a production pipeline:
