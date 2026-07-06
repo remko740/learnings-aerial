@@ -446,4 +446,6 @@ Things that didn't fit in the 8-hour scope but would meaningfully improve the pi
 
 ## Weights
 
-*(link to be added)*
+Trained weights are included in the repository:
+
+- `runs/train_v3/weights/best.pt` — Round 3 final model (21 MB, mAP50=0.775)
