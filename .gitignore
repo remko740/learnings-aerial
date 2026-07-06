@@ -8,6 +8,9 @@ data/dataset_v3/
 # Old training rounds (keep only v3)
 runs/train/
 runs/train_v2/
+runs/train_v3/*.jpg
+runs/train_v3/*.png
+runs/train_v3/weights/last.pt
 
 # Intermediate label sets (keep only labels_mixed — final cleaned labels)
 data/labels_hires/
@@ -26,6 +29,15 @@ data/val_predictions/
 
 # Cleanup progress
 data/.cleanup_progress.txt
+
+# Base model weights (downloaded automatically by ultralytics)
+yolov8*.pt
+yolov8l-worldv2.pt
+yolov8s-worldv2.pt
+runs/train_v3/weights/last.pt
+
+# CLIP weights
+weights/
 
 # Python
 __pycache__/
