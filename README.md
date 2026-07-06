@@ -420,9 +420,10 @@ python scripts/06_demo_video.py             # annotated demo video
 
 ---
 
-## Future improvements
+## What didn't fit in the 8-hour window
 
-Things that didn't fit in the 8-hour scope but would meaningfully improve the pipeline:
+The items below were intentionally descoped to keep the submission reviewable in 30–45 minutes.
+They represent the natural next steps if this were a production pipeline:
 
 ### Reducing false alarms at close range (0–200 m)
 
@@ -439,8 +440,15 @@ Things that didn't fit in the 8-hour scope but would meaningfully improve the pi
 ### General pipeline improvements
 
 - **Real camera calibration**: current distance estimation assumes a fixed 42° VFOV. Actual FOV from video metadata (or EXIF) would make band assignment more accurate.
-- **Tracking**: adding a simple tracker (ByteTrack, SORT) would suppress single-frame FP — a road sign doesn't move between frames, a vehicle does. This alone would significantly reduce FA/min.
+- **Tracking (ByteTrack/SORT)**: a road sign doesn't move between frames, a vehicle does. Adding a tracker as a post-processing step would suppress most single-frame FP with ~20 lines of code — likely the highest-impact improvement per effort.
 - **mAP on manually-annotated GT**: the current mAP is computed against YOLO-World pseudo-GT, which inflates FP counts (our model finds real vehicles that YOLO-World missed). Ground-truth annotations on even 50 eval frames would give an honest mAP number.
+
+### Production readiness
+
+- **FastAPI inference endpoint**: wrap the model in a `POST /predict` endpoint that accepts a video and returns detections as JSON — closer to how this would run in a real pipeline.
+- **Docker container**: `docker run aerial-detect` instead of conda setup, for reproducibility across machines.
+- **Experiment tracking** (W&B or MLflow): the three training rounds are currently compared manually in this README. In a team setting, all runs should log automatically.
+- **ONNX export**: `best.pt → best.onnx` for deployment without a PyTorch dependency.
 
 ---
 
