@@ -1,0 +1,33 @@
+# Regeneratable data
+data/frames/
+data/videos/
+data/dataset/
+data/dataset_v2/
+data/dataset_v3/
+
+# Old training rounds (keep only v3)
+runs/train/
+runs/train_v2/
+
+# Intermediate label sets (keep only labels_mixed — final cleaned labels)
+data/labels_hires/
+data/labels_rotated/
+data/labels_temporal/
+data/labels_self_trained/
+
+# Preview sets from labeling experiments
+data/preview_hires/
+data/preview_rotated/
+data/preview_temporal/
+data/preview_self_trained/
+
+# Val predictions (regeneratable)
+data/val_predictions/
+
+# Cleanup progress
+data/.cleanup_progress.txt
+
+# Python
+__pycache__/
+*.pyc
+.DS_Store
